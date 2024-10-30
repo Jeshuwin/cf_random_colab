@@ -63,14 +63,14 @@ class CF_MSA_var():
 
 
             fin_pred_dir = pdb1_name + '_predicted_models_rand_' + str(ran_seed) + '_max_*'
-            gen_dir = 'blind_prediction/' + pdb1_name
+            gen_dir =  pdb1_name
 
             if not os.path.exists(gen_dir):
                 os.makedirs(gen_dir)
-                mv_command = 'mv ' + fin_pred_dir + ' blind_prediction/' + pdb1_name
+                mv_command = 'mv ' + fin_pred_dir + ' ' + pdb1_name
                 print(mv_command); os.system(mv_command)
             else:
-                mv_command = 'mv ' + fin_pred_dir + ' blind_prediction/' + pdb1_name
+                mv_command = 'mv ' + fin_pred_dir + ' ' + pdb1_name
                 print(mv_command); os.system(mv_command)
                 
 
@@ -93,14 +93,14 @@ class prediction_all_blind():
 
 
         # Directory section
-        gen_dir = 'blind_prediction/' + pdb1_name
+        gen_dir = pdb1_name
 
         if not os.path.exists(gen_dir):
             os.mkdir(gen_dir)
 
 
         pred_dir = pdb1_name + '_predicted_models_full_rand_' + str(random_seed) + '/'
-        mv_folder_cmd = 'mv ' + pred_dir + ' blind_prediction/' + pdb1_name
+        mv_folder_cmd = 'mv ' + pred_dir + ' ' + pdb1_name
         print(mv_folder_cmd); os.system(mv_folder_cmd)
 
 
