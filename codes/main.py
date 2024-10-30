@@ -64,6 +64,10 @@ if __name__ == "__main__":
     else:
         pdb1_name = pdb1.replace('.pdb','');  pdb2_name = pdb2.replace('.pdb','')
 
+    if args.option == "blind":
+      pdb1_name = pdb1.replace('.pdb','')
+      print(pdb1_name)
+
 
     pwd = os.getcwd() + '/'
     search_dir = ' ' + pwd + args.fname
@@ -247,19 +251,20 @@ if __name__ == "__main__":
         print("Predicting fold-swithcing proteins without crystal structures of pdbs")
         ######################################################################################################
         ###### check previous predictions were performed or not
-        if not os.path.exists(blind):
-            os.mkdir(blind)
-        else:
+        if not os.path.exists(pdb1_name):
+            os.mkdir(pdb1_name)
             blind_dir_count = 0
-            for root_dir, cur_dir, files in os.walk(pwd + blind + '/' + pdb1_name + '/'):
+        elif os.path.exists(pdb1_name):
+            blind_dir_count = 0
+            for root_dir, cur_dir, files in os.walk(pdb1_name + '/'):
                 blind_dir_count += len(cur_dir)
             
-        if os.path.exists(blind + '/' + pdb1_name):
-            if blind_dir_count >= 8:
+            if os.path.exists(pdb1_name):
+              if blind_dir_count >= 8:
                 print("Prediction was already done")
             else:
                 print("Folder is already created and cleaning existed subfolders")
-                rm_pre_folders = 'rm -rf ' + blind + '/' + pdb1_name + '/'
+                rm_pre_folders = 'rm -rf ' + pdb1_name + '/'
                 os.system(rm_pre_folders)
         else:
             pass
@@ -267,15 +272,15 @@ if __name__ == "__main__":
 
 
         ###### running prediction using full- and shallow random-MSA
-        blind_pred_path = 'blind_prediction/' + pdb1_name
+        blind_pred_path = pdb1_name
         print(blind_pred_path)
 
-        if os.path.exists(blind + '/' + pdb1_name) and blind_dir_count >= 8:
+        if os.path.exists(pdb1_name) and blind_dir_count >= 8:
             print("Predictions including full- and random-MSA were already done")
 
 
             fseek_file_count = 0
-            for root_dir, cur_dir, files in os.walk(pwd + blind + '/' + pdb1_name + '/'):
+            for root_dir, cur_dir, files in os.walk(pdb1_name + '/'):
                 fseek_file_count += len(files)
 
             print(fseek_file_count)
@@ -313,3 +318,4 @@ if __name__ == "__main__":
 
     else:
         print("Please type correct option")
+
