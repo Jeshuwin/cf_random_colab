@@ -44,7 +44,7 @@ class running_foldseek_all():
         pwd = os.getcwd()
         for model in self.files_list:
             print(model)
-            command = 'foldseek easy-search ' + model + ' ' + pwd + '/pdb ' + model[:-3] + 'foldseek tmp --format-mode 0 --format-output "query,target,alntmscore,qaln,taln,alnlen,evalue,bits"'
+            command = '/content/foldseek/bin/foldseek easy-search ' + model + ' ' + pwd + '/pdb ' + model[:-3] + 'foldseek tmp --format-mode 0 --format-output "query,target,alntmscore,qaln,taln,alnlen,evalue,bits"'
             print(command); os.system(command)
 
 
@@ -55,18 +55,18 @@ class running_foldseek_all():
         ### directory name full (pdb1_name + '_predicted_models_full_rand_' + str(random_seed))
         ### directory name shallow (pdb1_name + '_predicted_models_rand_' + str(ran_seed) + '_max_*')
         ### 2oug_C_predicted_models_rand_43_max_8_ext_16/ 
-        foldseek_db = "foldseek databases PDB pdb tmp"
+        #foldseek_db = "foldseek databases PDB pdb tmp"
         #os.system(foldseek_db)
 
 
-        get_dir_full  = 'blind_prediction/' + pdb1_name + '/' + pdb1_name + '_predicted_models_full_rand_*'
-        get_dir_ran_0 = 'blind_prediction/' + pdb1_name + '/' + pdb1_name + '_predicted_models_rand_*_max_1_ext_2'
-        get_dir_ran_1 = 'blind_prediction/' + pdb1_name + '/' + pdb1_name + '_predicted_models_rand_*_max_2_ext_4'
-        get_dir_ran_2 = 'blind_prediction/' + pdb1_name + '/' + pdb1_name + '_predicted_models_rand_*_max_4_ext_8'
-        get_dir_ran_3 = 'blind_prediction/' + pdb1_name + '/' + pdb1_name + '_predicted_models_rand_*_max_8_ext_16'
-        get_dir_ran_4 = 'blind_prediction/' + pdb1_name + '/' + pdb1_name + '_predicted_models_rand_*_max_16_ext_32'
-        get_dir_ran_5 = 'blind_prediction/' + pdb1_name + '/' + pdb1_name + '_predicted_models_rand_*_max_32_ext_64'
-        get_dir_ran_6 = 'blind_prediction/' + pdb1_name + '/' + pdb1_name + '_predicted_models_rand_*_max_64_ext_128'
+        get_dir_full  = pdb1_name + '/' + pdb1_name[15:] + '_predicted_models_full_rand_*'
+        get_dir_ran_0 = pdb1_name + '/' + pdb1_name[15:] + '_predicted_models_rand_*_max_1_ext_2'
+        get_dir_ran_1 = pdb1_name + '/' + pdb1_name[15:] + '_predicted_models_rand_*_max_2_ext_4'
+        get_dir_ran_2 = pdb1_name + '/' + pdb1_name[15:] + '_predicted_models_rand_*_max_4_ext_8'
+        get_dir_ran_3 = pdb1_name + '/' + pdb1_name[15:] + '_predicted_models_rand_*_max_8_ext_16'
+        get_dir_ran_4 = pdb1_name + '/' + pdb1_name[15:] + '_predicted_models_rand_*_max_16_ext_32'
+        get_dir_ran_5 = pdb1_name + '/' + pdb1_name[15:] + '_predicted_models_rand_*_max_32_ext_64'
+        get_dir_ran_6 = pdb1_name + '/' + pdb1_name[15:] + '_predicted_models_rand_*_max_64_ext_128'
 
     
         self.gen_dir(get_dir_full);  self.run_foldseek()
