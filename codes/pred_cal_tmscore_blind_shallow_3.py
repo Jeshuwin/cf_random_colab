@@ -25,8 +25,8 @@ class CF_MSA_var():
     def __init__(self, pdb1_name, search_dir, output_dir, rseed):
         #### shallow MSA section
         #### Global viarlable
-        max_msa = 2
-        ext_msa = 4
+        max_msa = 4
+        ext_msa = 8
         random_seed = np.array(rseed) ## needed to remove future
 
         self.pdb1_name = pdb1_name
@@ -34,8 +34,8 @@ class CF_MSA_var():
 
 
         for ran_seed in random_seed:
-            max_msa = 2
-            ext_msa = 4
+            max_msa = 4
+            ext_msa = 8
 
             TMscores_random = []
 
