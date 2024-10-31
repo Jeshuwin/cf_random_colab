@@ -64,9 +64,11 @@ if __name__ == "__main__":
     else:
         pdb1_name = pdb1.replace('.pdb','');  pdb2_name = pdb2.replace('.pdb','')
 
-    if args.option == "blind":
-      pdb1_name = blind_pdb_name; pdb1_name = pdb1.replace('.pdb','')
+    if args.pdb1 is not None and args.option == "blind":
+      pdb1_name = args.pdb1; pdb1_name = pdb1.replace('.pdb','')
       print(pdb1_name)
+    elif args.pdb1 is not None and args.option == "blind":
+      pdb1_name = blind_pdb_name; pdb1_name = pdb1.replace('.pdb','')
 
 
     pwd = os.getcwd() + '/'
