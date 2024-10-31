@@ -21,7 +21,7 @@ import argparse
 
 
 from pred_cal_tmscore_FS import *
-from pred_cal_tmscore_blind_shallow_1 import *
+from pred_cal_tmscore_blind_shallow_3 import *
 from pred_cal_tmscore_AC import *
 from additional_pred_FS import * 
 from additional_pred_AC import *
