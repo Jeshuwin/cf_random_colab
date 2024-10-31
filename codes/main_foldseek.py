@@ -119,19 +119,20 @@ if __name__ == "__main__":
             print("Predictions including full- and random-MSA were already done")
             pass
 
-            #fseek_file_count = 0
-            #for root_dir, cur_dir, files in os.walk(pdb1_name + '/'):
-            #    fseek_file_count += len(files)
+            fseek_file_count = 0
+            for root_dir, cur_dir, files in os.walk(pdb1_name + '/'):
+                fseek_file_count += len(files)
 
-            #print(fseek_file_count)
+            print(fseek_file_count)
             ##if fseek_file_count == 856: ##(107 * 8) 107 includes foldseek file and 8 means the numbers of prediction folders
-            #if fseek_file_count >= 640: ##672
-            #    print("    "); print("Foldseek search was done")
+            if fseek_file_count >= 640: ##672
+                print("    "); print("Foldseek search was done")
+                pass
             #    #### performing the PCA calculation with RMSD
             #    #PCA_rmsd(pdb1_name, blind_pred_path)
             #    blind_screening(pdb1_name, blind_pred_path)
-            #else:
-            #    running_foldseek_all(pdb1_name)
+            else:
+                running_foldseek_all(pdb1_name)
 
             #    #### performing the PCA calculation with RMSD
             #    #PCA_rmsd(pdb1_name, blind_pred_path)
@@ -140,13 +141,11 @@ if __name__ == "__main__":
 
 
         else:
-            prediction_all_blind_max(pdb1_name, search_dir)
-            #print("               ")
-            #print("Finished running for prediction using full- and shallow random-MSAs")
-            #
-            #print("               ")
-            #print("Running Foldseek to find the relatedcrystal structures")
-            #running_foldseek_all(pdb1_name)
+            print("Finished running for prediction using full- and shallow random-MSAs")
+            
+            print("               ")
+            print("Running Foldseek to find the relatedcrystal structures")
+            running_foldseek_all(pdb1_name)
 
             ##### performing the PCA calculation with RMSD
             ##PCA_rmsd(pdb1_name, blind_pred_path)
