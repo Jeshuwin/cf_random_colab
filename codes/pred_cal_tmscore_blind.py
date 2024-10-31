@@ -77,7 +77,7 @@ class CF_MSA_var():
 
 
 
-class prediction_all_blind():
+class prediction_all_blind_max():
     def __init__(self, pdb1_name, search_dir):
         
         pre_random_seed = np.random.randint(0, 16, 1)
@@ -105,10 +105,10 @@ class prediction_all_blind():
 
 
 
-        ##### check out varied-MSA with (msa-max: 1, 2, 4, 8, 16, 32, 64) (msa-extra: 2, 4, 8, 16, 32, 64, 128)
-        output_dir = ' ' + pdb1_name + '_predicted_models_rand_'
-        random_seed = random.sample(range(100), 1)
-        MSA_var = CF_MSA_var(pdb1_name, search_dir, output_dir, random_seed)
+        ###### check out varied-MSA with (msa-max: 1, 2, 4, 8, 16, 32, 64) (msa-extra: 2, 4, 8, 16, 32, 64, 128)
+        #output_dir = ' ' + pdb1_name + '_predicted_models_rand_'
+        #random_seed = random.sample(range(100), 1)
+        #MSA_var = CF_MSA_var(pdb1_name, search_dir, output_dir, random_seed)
 
 
 
