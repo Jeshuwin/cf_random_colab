@@ -130,13 +130,13 @@ if __name__ == "__main__":
                 pass
             #    #### performing the PCA calculation with RMSD
             #    #PCA_rmsd(pdb1_name, blind_pred_path)
-            #    blind_screening(pdb1_name, blind_pred_path)
+                blind_screening(pdb1_name, blind_pred_path)
             else:
                 running_foldseek_all(pdb1_name)
 
             #    #### performing the PCA calculation with RMSD
             #    #PCA_rmsd(pdb1_name, blind_pred_path)
-            #    blind_screening(pdb1_name, blind_pred_path)
+                blind_screening(pdb1_name, blind_pred_path)
 
 
 
@@ -146,10 +146,7 @@ if __name__ == "__main__":
             print("               ")
             print("Running Foldseek to find the relatedcrystal structures")
             running_foldseek_all(pdb1_name)
-
-            ##### performing the PCA calculation with RMSD
-            ##PCA_rmsd(pdb1_name, blind_pred_path)
-            #blind_screening(pdb1_name, blind_pred_path)
+            blind_screening(pdb1_name, blind_pred_path)
 
 
 
