@@ -60,7 +60,7 @@ class CF_MSA_var():
 
 
 
-class prediction_all_blind_shallow_1():
+class prediction_all_blind_shallow_2():
     def __init__(self, pdb1_name, search_dir):
         
         pwd = os.getcwd() + '/'
