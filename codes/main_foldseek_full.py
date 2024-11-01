@@ -146,7 +146,7 @@ if __name__ == "__main__":
             print("               ")
             print("Running Foldseek to find the relatedcrystal structures")
             running_foldseek_full(pdb1_name)
-            blind_screening(pdb1_name, blind_pred_path)
+            
 
 
 
