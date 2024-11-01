@@ -54,8 +54,8 @@ class blind_screening():
 
 
          print(rank[-1])
-         return IDs.split('/')[0] + '/' + IDs.split('/')[1] + '/' + IDs.split('/')[2] + '/0_unrelaxed_rank_' + rank[-1] + '_' +pdbs[idx]+'.pdb'
-    
+         return IDs.split('/')[0] + '/' + IDs.split('/')[1] + '/0_unrelaxed_rank_' + rank[-1] + '_' +pdbs[idx]+'.pdb'
+         
 
 
     def __init__(self, pdb1_name, blind_path):
