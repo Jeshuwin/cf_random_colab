@@ -27,7 +27,7 @@ import argparse
 
 
 
-class running_foldseek_all():
+class running_foldseek_full():
     def gen_dir(self, get_dir):
         ## getting predicted directory
         print("Getting the list of predicted models...")
