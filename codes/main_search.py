@@ -21,10 +21,11 @@ import argparse
 
 
 from pred_cal_tmscore_FS import *
-from pred_cal_tmscore_blind_shallow_1 import *
+from pred_cal_tmscore_blind_max import *
 from pred_cal_tmscore_AC import *
 from additional_pred_FS import * 
 from additional_pred_AC import *
+from foldseek_run__shallow_1 import *
 from CF_random_blind import *
 from cal_plddt_ACFS import *
 from PLOT_AC import *
@@ -47,7 +48,7 @@ if __name__ == "__main__":
     parser.add_argument("--pdb1", type=str, help='PDB structure for the target crystal structure (target to be predicted)')
     parser.add_argument("--pdb2", type=str, help='PDB structure for the alternative crystal structure')
     parser.add_argument("--fname", type=str, help='put folder name after colabsearch' )
-    parser.add_argument("--pname", type=str, help='put tentative protein name for blind search' )    
+    parser.add_argument("--pname", type=str, help='put tentative protein name for blind search' )
     parser.add_argument("--option", type=str, help='select prediction mode AC and FS e.g. AC = alterantive conformation or FS = fold-switching')
     args = parser.parse_args()
 
@@ -75,19 +76,53 @@ if __name__ == "__main__":
     pwd = os.getcwd() + '/'
     search_dir = ' ' + pwd + args.fname
 
+    blind = 'blind_prediction'
+    success = 'successed_prediction'
+    fail = 'failed_prediction'
 
 
 
 
-    print("Predicting fold-swithcing proteins without crystal structures of pdbs")
-    
-    
-    
-    ###### running prediction using shallow random-MSA
-    blind_pred_path = pdb1_name
-    print(blind_pred_path)
-    
-    prediction_all_blind_shallow_1(pdb1_name, search_dir)
-    print("               ")
-    print("Finished running for prediction using shallow random-MSAs")
+
+
+
+
+    if args.option == "blind":
+        print("Predicting fold-swithcing proteins without crystal structures of pdbs")
+        ######################################################################################################
+        ###### check previous predictions were performed or not
+        if not os.path.exists(pdb1_name):
+            os.mkdir(pdb1_name)
+            blind_dir_count = 0
+        elif os.path.exists(pdb1_name):
+            blind_dir_count = 0
+            for root_dir, cur_dir, files in os.walk(pdb1_name + '/'):
+                blind_dir_count += len(cur_dir)
             
+            if os.path.exists(pdb1_name):
+              if blind_dir_count >= 8:
+                print("Prediction was already done")
+            else:
+                print("Folder is already created and cleaning existed subfolders")
+                rm_pre_folders = 'rm -rf ' + pdb1_name + '/'
+                os.system(rm_pre_folders)
+        else:
+            pass
+
+
+
+        ###### running prediction using full- and shallow random-MSA
+        blind_pred_path = pdb1_name
+        print(blind_pred_path)
+        print("Finished running for predictions and Foldseek search")
+        print("Finding alternative conformations")
+        blind_screening(pdb1_name, blind_pred_path)    
+
+
+
+
+
+
+    else:
+        print("Please type correct option")
+
