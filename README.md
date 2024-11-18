@@ -1,6 +1,6 @@
 # Google Colab for CF-Random
 
-The Colab notebook can be run here: [CF-Random_v1]([https://github.com/YoshitakaMo/localcolabfold]
+The Colab notebook can be run here: [CF-Random_v1](https://colab.research.google.com/drive/1LsSFe8FxJaLfNGUcE5HMgxxwGGlLfexk?usp=sharing)
 
 
 
