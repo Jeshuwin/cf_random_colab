@@ -1,4 +1,10 @@
-# Data and code for CF-random
+# Google Colab for CF-Random
+
+The Colab notebook can be run here: [CF-Random_v1]([https://github.com/YoshitakaMo/localcolabfold](https://colab.research.google.com/drive/1LsSFe8FxJaLfNGUcE5HMgxxwGGlLfexk?usp=sharing)
+
+
+
+# Data and code for CF-Random
 The general installation and usage guidance of CF-random for predicting the alternative conformation and fold-switching proteins.<br>
 For using CF-random in Colab notebook, please use following link.<br>
 ''' hyperlink for colab notebook '''<br>
