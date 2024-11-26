@@ -20,15 +20,15 @@ import glob
 import argparse
 
 
-from pred_cal_tmscore_FS import *
+#from pred_cal_tmscore_FS import *
 from pred_cal_tmscore_blind_max import *
-from pred_cal_tmscore_AC import *
-from additional_pred_FS import * 
-from additional_pred_AC import *
-from CF_random_blind import *
-from cal_plddt_ACFS import *
-from PLOT_AC import *
-from PLOT_FS import *
+#from pred_cal_tmscore_AC import *
+#from additional_pred_FS import * 
+#from additional_pred_AC import *
+#from CF_random_blind import *
+#from cal_plddt_ACFS import *
+#from PLOT_AC import *
+#from PLOT_FS import *
 
 if __name__ == "__main__":
 
