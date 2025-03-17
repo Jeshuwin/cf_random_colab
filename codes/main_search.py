@@ -27,6 +27,7 @@ from additional_pred_FS import *
 from additional_pred_AC import *
 from foldseek_run_shallow_1 import *
 from CF_random_blind import *
+from search_w_foldseek_cluster import *
 from cal_plddt_ACFS import *
 from PLOT_AC import *
 from PLOT_FS import *
