@@ -25,8 +25,8 @@ from pred_cal_tmscore_blind_max import *
 from pred_cal_tmscore_AC import *
 from additional_pred_FS import * 
 from additional_pred_AC import *
-from CF_random_blind import *
-from search_w_foldseek_cluster import *
+#from CF_random_blind import *
+#from search_w_foldseek_cluster import *
 from cal_plddt_ACFS import *
 from PLOT_AC import *
 from PLOT_FS import *
