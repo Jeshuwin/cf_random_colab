@@ -151,7 +151,7 @@ class blind_screening():
     
     
         print("Creating database...")
-        create_db = ["foldseek", "createdb", db_directory, db_directory + "DB"]
+        create_db = ["/content/foldseek/bin/foldseek", "createdb", db_directory, db_directory + "DB"]
         if not os.path.isfile(db_directory + "DB"):
             try:
                 response = subprocess.run(create_db, capture_output=True, text=True, check=True )
@@ -165,7 +165,7 @@ class blind_screening():
         #________________Calculate foldseek self comparison of all predicted structures____________
     
         for file in pdb_files:
-            foldseek_run = ["foldseek", "easy-search", file, db_directory + "DB", file.replace(".pdb","-self.foldseek"), "tmp", "--format-mode", "0", "--format-output", "query,target,alntmscore,qaln,taln,alnlen,evalue,bits", "--exhaustive-search", "1", "-s", "9.5"]
+            foldseek_run = ["/content/foldseek/bin/foldseek", "easy-search", file, db_directory + "DB", file.replace(".pdb","-self.foldseek"), "tmp", "--format-mode", "0", "--format-output", "query,target,alntmscore,qaln,taln,alnlen,evalue,bits", "--exhaustive-search", "1", "-s", "9.5"]
             if not os.path.isfile(file.replace(".pdb","-self.foldseek")):
                 response = subprocess.run(foldseek_run, capture_output=True, text=True, check=True)
                 try:
