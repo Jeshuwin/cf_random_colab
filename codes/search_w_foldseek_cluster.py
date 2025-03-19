@@ -294,7 +294,7 @@ class blind_screening():
 #        pymol.cmd.reinitialize()
 #    
         #save all data with clusters
-        with open("structures_all.csv", 'w') as file:
+        with open(blind_path + '/' + pdb1_name + "-structures_all.csv", 'w') as file:
             file.write("group, file, pca_1, pca_2\n")
             for idx, f in enumerate(files):
                 file.write(f"{labels[idx]},{f},{pca[idx, 0]},{pca[idx, 1]}\n")
