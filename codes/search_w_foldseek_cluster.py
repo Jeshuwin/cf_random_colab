@@ -273,26 +273,26 @@ class blind_screening():
         with open(pdb1_name + "-structures_of_interest.csv", "w") as file:
             file.write("group, file, pca_1, pca_2\n")
     
-        with open(blind_path + '/' + pdb1_name + "-structures_of_interest.csv", "a") as file:
-            for idx, foi in enumerate(files_of_interest):
-                if largest_group_num[1] == -1:
-                    color = 0
-                else:
-                    color = (foi[1] + 1) / (largest_group_num[1]+1)
-                color = viridis(color)[:3]
-                new_name = re.findall(r'(full)|(max\w+)|(rank_\d+)', foi[0])
-                new_name = str(idx)+ '_' + '_'.join([i for n in new_name for i in n if i != ''])
-                pymol.cmd.load(foi[0].replace('-self.foldseek','.pdb'), new_name)
-                pymol.cmd.align(new_name,'Dominant')
-                color_name = 'col_'+str(foi[1])
-                pymol.cmd.set_color(color_name, color)
-                pymol.cmd.color(color_name,new_name)
-                file.write(f"{foi[1]}, {foi[0]}, {pca_of_interest[idx][0]}, {pca_of_interest[idx][1]}\n")
-    
-        pymol.cmd.save(blind_path + '/' + pdb1_name + '-structures_of_interest.pse', 'pse')
-        pymol.cmd.delete('all')
-        pymol.cmd.reinitialize()
-    
+#        with open(blind_path + '/' + pdb1_name + "-structures_of_interest.csv", "a") as file:
+#            for idx, foi in enumerate(files_of_interest):
+#                if largest_group_num[1] == -1:
+#                    color = 0
+#                else:
+#                    color = (foi[1] + 1) / (largest_group_num[1]+1)
+#                color = viridis(color)[:3]
+#                new_name = re.findall(r'(full)|(max\w+)|(rank_\d+)', foi[0])
+#                new_name = str(idx)+ '_' + '_'.join([i for n in new_name for i in n if i != ''])
+#                pymol.cmd.load(foi[0].replace('-self.foldseek','.pdb'), new_name)
+#                pymol.cmd.align(new_name,'Dominant')
+#                color_name = 'col_'+str(foi[1])
+#                pymol.cmd.set_color(color_name, color)
+#                pymol.cmd.color(color_name,new_name)
+#                file.write(f"{foi[1]}, {foi[0]}, {pca_of_interest[idx][0]}, {pca_of_interest[idx][1]}\n")
+#    
+#        pymol.cmd.save(blind_path + '/' + pdb1_name + '-structures_of_interest.pse', 'pse')
+#        pymol.cmd.delete('all')
+#        pymol.cmd.reinitialize()
+#    
         #save all data with clusters
         with open("structures_all.csv", 'w') as file:
             file.write("group, file, pca_1, pca_2\n")
