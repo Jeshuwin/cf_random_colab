@@ -15,7 +15,7 @@ from sklearn.preprocessing import minmax_scale
 import MDAnalysis as mda
 from MDAnalysis.analysis.dssp import DSSP
 
-import pymol
+#import pymol
 
 
 class blind_screening():
