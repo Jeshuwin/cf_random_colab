@@ -145,8 +145,11 @@ class blind_screening():
         print("Gathering pdb pdb files for self-search")
         for file in pdb_files:
             dest_name = file.replace('/','-')
-            if not os.path.isfile(db_directory + dest_name[17:]):
-                shutil.copyfile(file, db_directory + dest_name[17:])
+            folder, file_name = dest_name.split('-', 1)
+            if not os.path.isfile(db_directory + file_name):
+                shutil.copyfile(file, db_directory + file_name)
+            #if not os.path.isfile(db_directory + dest_name[17:]):
+            #    shutil.copyfile(file, db_directory + dest_name[17:])
         #__________________________________________________________________________________________
     
     
@@ -217,7 +220,7 @@ class blind_screening():
             print("removed from analysis: ",file.replace("-self.foldseek",".pdb"))
         files = files[~mask]
         files = sorted(files)
-        files_pdb = [file.replace('/','-')[17å:].replace("-self.foldseek",".pdb") for file in files]
+        files_pdb = [file.replace('/','-').replace("-self.foldseek",".pdb").split('-', 1)[1] for file in files]
         corr_mtx = []
     
         df = {}
